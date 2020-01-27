@@ -27,7 +27,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        dd('da creare');
+      $categories = Category::all();
+      return view('pages.postStore', compact("categories"));
     }
 
     /**
@@ -38,7 +39,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        dd('da creare');
+      $validatedData = $request -> validated();
+      $post = Post::create($validatedData);
+      return redirect() -> route('posts.index');
     }
 
     /**
@@ -49,7 +52,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        dd('da creare');
+      $categories = Category::all();
+      $post = Post::findOrFail($post -> id);
+      return view('pages.postShow', compact("post" ,"categories"));
     }
 
     /**

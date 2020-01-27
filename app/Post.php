@@ -8,7 +8,7 @@ class Post extends Model
 {
     //Non servirebbe avendo usato il nome del model al singolare e la tabella al plurale
     protected $table = 'posts';
-    
+
     //Le colonne che vogliamo salvare e editare durante i salvataggi
     protected $fillable = ['category_id', 'title', 'author'];
 
@@ -21,6 +21,10 @@ class Post extends Model
     public function category()
     {
         return $this->belongsTo('App\Category');
+    }
+
+    public function tags(){
+       return $this -> belongsToMany(Tag::class);
     }
 
 }

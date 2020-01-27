@@ -19,3 +19,10 @@ body {
 .create {
     margin: 10px 0 30px;
 }
+
+.Tags{
+    list-style-type: none;
+    li{
+        display: inline;
+    }
+}
